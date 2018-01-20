@@ -24,21 +24,11 @@ class Extension(ext.Extension):
 
     def get_config_schema(self):
         schema = super(Extension, self).get_config_schema()
-        # TODO: Comment in and edit, or remove entirely
-        #schema['username'] = config.String()
-        #schema['password'] = config.Secret()
+        schema['pin_irq'] = config.Integer()
+        schema['pin_rst'] = config.Integer()
+        schema['pin_ce'] = config.Integer()
         return schema
 
     def setup(self, registry):
-        # You will typically only implement one of the following things
-        # in a single extension.
-
-        # TODO: Edit or remove entirely
         from .frontend import NFCPlayerFrontend
         registry.add('frontend', NFCPlayerFrontend)
-
-        # TODO: Edit or remove entirely
-        registry.add('http:static', {
-            'name': self.ext_name,
-            'path': os.path.join(os.path.dirname(__file__), 'static'),
-        })
