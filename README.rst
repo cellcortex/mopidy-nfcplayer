@@ -44,6 +44,10 @@ Project resources
 - `Source code <https://github.com/cellcortex/mopidy-nfcplayer>`_
 - `Issue tracker <https://github.com/cellcortex/mopidy-nfcplayer/issues>`_
 
+Troubleshooting
+===============
+The user running mopidy on Raspberry Pi needs to be in the 'spi' group.
+
 
 Credits
 =======
