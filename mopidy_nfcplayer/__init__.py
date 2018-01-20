@@ -34,12 +34,8 @@ class Extension(ext.Extension):
         # in a single extension.
 
         # TODO: Edit or remove entirely
-        from .frontend import FoobarFrontend
-        registry.add('frontend', FoobarFrontend)
-
-        # TODO: Edit or remove entirely
-        from .backend import FoobarBackend
-        registry.add('backend', FoobarBackend)
+        from .frontend import NFCPlayerFrontend
+        registry.add('frontend', NFCPlayerFrontend)
 
         # TODO: Edit or remove entirely
         registry.add('http:static', {
