@@ -3,6 +3,9 @@ import pykka
 from mopidy import core
 import logging
 from pirc522 import RFID
+import threading
+
+from .nfcworker import NFCWorker
 
 logger = logging.getLogger(__name__)
 
@@ -14,10 +17,7 @@ class NFCPlayerFrontend(pykka.ThreadingActor, core.CoreListener):
         names = map(lambda x: x.uri, lists)
         logger.info(names)
         self.core = core
-        self.rfid = RFID(pin_rst=config['nfcplayer']['pin_rst'],
-                         pin_irq=config['nfcplayer']['pin_irq'],
-                         pin_ce=0)
-        self.util = self.rfid.util()
-        self.util.debug = True
+        self.config = config['nfcplayer']
+        self.worker = NFCWorker(self)
 
     # Your frontend implementation
