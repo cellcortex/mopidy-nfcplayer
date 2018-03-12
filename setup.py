@@ -28,6 +28,7 @@ setup(
         'Mopidy >= 1.0',
         'Pykka >= 1.1',
         'pi-rc522',
+        'ndeflib'
     ],
     entry_points={
         'mopidy.ext': [
